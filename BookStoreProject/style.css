@@ -1,0 +1,503 @@
+/* ==========================================================================
+   1. RESET & VARIABLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+}
+
+:root {
+    --primary-color: #2c3e50;    /* 落ち着いたネイビー */
+    --accent-color: #e67e22;     /* 温かみのあるオレンジ */
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    color: var(--text-color);
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+section {
+    padding: 5rem 9%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* 共通ボタンスタイル */
+button {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--white);
+    padding: 1.5rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+}
+
+header .logo i {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+header nav a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-left: 2rem;
+    transition: var(--transition);
+}
+
+header nav a:hover {
+    color: var(--accent-color);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-icons a {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+.header-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* 検索ボックス */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: var(--light-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+}
+
+.search-box input {
+    background: transparent;
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.search-box button {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.search-box button:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    /* 本のイメージ背景（プレースホルダー画像ですが自由に変更可能） */
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1920&q=80') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 70px; /* ヘッダーの固定分空ける */
+}
+
+.hero-content {
+    max-width: 600px;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content button {
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.hero-content button:hover {
+    background-color: var(--white);
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. CATEGORIES SECTION
+   ========================================================================== */
+.categories {
+    background: var(--white);
+}
+
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.category {
+    background: var(--light-bg);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+
+.category i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.category h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.category:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.category:hover i,
+.category:hover h3 {
+    color: var(--white);
+}
+
+/* ==========================================================================
+   5. BOOKS GRID (Popular, Best Sellers, New Arrivals 共通)
+   ========================================================================== */
+.books, .best-sellers, .new-arrivals {
+    background: var(--light-bg);
+}
+
+.best-sellers {
+    background: var(--white); /* 交互に背景色を変えて見やすく */
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    height: 2.4em; /* タイトルの高さを揃える */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.card h4 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.card button {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.card button:hover {
+    background: var(--accent-color);
+}
+
+/* ==========================================================================
+   6. ABOUT SECTION
+   ========================================================================== */
+.about {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+
+.about h2 {
+    color: var(--white);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   7. REVIEWS SECTION
+   ========================================================================== */
+.reviews {
+    background: var(--white);
+}
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.review {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.review img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--accent-color);
+}
+
+.review h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.review p {
+    color: #555;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   8. NEWSLETTER & CONTACT
+   ========================================================================== */
+.newsletter {
+    background: var(--light-bg);
+    text-align: center;
+}
+
+.newsletter p {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.newsletter-box {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: var(--shadow);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.newsletter-box input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    background: var(--white);
+}
+
+.newsletter-box button {
+    padding: 0 2rem;
+    background: var(--accent-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.newsletter-box button:hover {
+    background: var(--primary-color);
+}
+
+/* Contact Section */
+.contact {
+    background: var(--white);
+    text-align: center;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+footer {
+    background: #1a252f;
+    color: #bdc3c7;
+    padding: 3rem 9% 2rem;
+    text-align: center;
+}
+
+footer h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: #bdc3c7;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #2c3e50;
+    padding-top: 1.5rem;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE MEDIA QUERIES (スマホ・タブレット対応)
+   ========================================================================== */
+@media (max-width: 991px) {
+    html {
+        font-size: 90%;
+    }
+    header {
+        padding: 1.5rem 2rem;
+    }
+    section {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+    }
+    .hero {
+        margin-top: 0;
+        min-height: 60vh;
+    }
+    header nav {
+        margin: 0.5rem 0;
+    }
+    header nav a {
+        margin: 0 0.8rem;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
