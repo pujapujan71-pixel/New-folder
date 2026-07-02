@@ -3,57 +3,641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuprai Clone</title>
+    <title>Swasteeka Book Store</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="logo">thuprai</div>
-        <div class="nav-right">
-            <button class="login-btn">Login</button>
-        </div>
-    </header>
+<!-- ================= HEADER ================= -->
 
-    <section class="genre-section">
-        <h2>Browse Books by Genre</h2>
-        <div class="genre-grid">
-            <div class="genre-item">Fiction</div>
-            <div class="genre-item">Short Stories</div>
-            <div class="genre-item">Travel</div>
-            <div class="genre-item">History</div>
-            <div class="genre-item">Biography & Memoirs</div>
-            <div class="genre-item">Literature/Essays</div>
-            <div class="genre-item">Poetry</div>
-            <div class="genre-item">Health & Fitness</div>
-        </div>
-    </section>
+<header>
 
-    <section class="new-releases">
-        <div class="section-header">
-            <h2>New Releases</h2>
-            <button class="view-all">View All</button>
-        </div>
-        
-        <div class="book-grid">
-            <div class="book-card">
-                <img src="images/book1.jpg" alt="Book 1">
-                <p class="book-title">डङ्गी</p>
-            </div>
-            <div class="book-card">
-                <img src="images/book2.jpg" alt="Book 2">
-                <p class="book-title">औसत एउटा जिन्दगी</p>
-            </div>
-            <div class="book-card">
-                <img src="images/book3.jpg" alt="Book 3">
-                <p class="book-title">Crack in the Wind</p>
-            </div>
-            <div class="book-card">
-                <img src="images/book4.jpg" alt="Book 4">
-                <p class="book-title">मङ्गली कुसुम</p>
-            </div>
-        </div>
-    </section>
+<div class="logo">
+
+<i class="fa-solid fa-book-open"></i>
+
+<h2>Swasteeka Book Store</h2>
+
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="books.html">Books</a>
+
+<a href="#">Categories</a>
+
+<a href="about.html">About</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<div class="header-icons">
+
+<div class="search-box">
+
+<input type="text"
+id="search"
+placeholder="Search Nepali Books...">
+
+<button>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+</div>
+
+<a href="cart.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+<a href="login.html">
+
+<i class="fa-solid fa-user"></i>
+
+</a>
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Welcome to Swasteeka Book Store</h1>
+
+<p>
+
+नेपालका उत्कृष्ट पुस्तकहरू अब अनलाइन किन्नुहोस्।
+
+</p>
+
+<a href="books.html">
+
+<button>
+
+Shop Now
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+<h2>Book Categories</h2>
+
+<div class="category-container">
+
+<div class="category">
+
+<i class="fa-solid fa-book"></i>
+
+<h3>Novel</h3>
+
+</div>
+
+<div class="category">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>Education</h3>
+
+</div>
+
+<div class="category">
+
+<i class="fa-solid fa-child"></i>
+
+<h3>Children</h3>
+
+</div>
+
+<div class="category">
+
+<i class="fa-solid fa-heart"></i>
+
+<h3>Motivation</h3>
+
+</div>
+
+<div class="category">
+
+<i class="fa-solid fa-landmark"></i>
+
+<h3>History</h3>
+
+</div>
+
+<div class="category">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+<h3>Technology</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= POPULAR BOOKS ================= -->
+
+<section class="books">
+
+<h2>Popular Nepali Books</h2>
+
+<div class="book-container">
+
+<div class="card">
+
+<img src="images/summerlove.jpg" alt="Summer Love">
+
+<h3>Summer Love</h3>
+
+<p>Author : Subin Bhattarai</p>
+
+<h4>Rs.650</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/saaya.jpg" alt="Saaya">
+
+<h3>Saaya</h3>
+
+<p>Author : Subin Bhattarai</p>
+
+<h4>Rs.700</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/karnali.jpg" alt="Karnali Blues">
+
+<h3>Karnali Blues</h3>
+
+<p>Author : Buddhisagar</p>
+
+<h4>Rs.850</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/palpasa.jpg" alt="Palpasa Cafe">
+
+<h3>Palpasa Cafe</h3>
+
+<p>Author : Narayan Wagle</p>
+
+<h4>Rs.600</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/setodharti.jpg" alt="Seto Dharti">
+
+<h3>Seto Dharti</h3>
+
+<p>Author : Amar Neupane</p>
+
+<h4>Rs.750</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/basain.jpg" alt="Basain">
+
+<h3>Basain</h3>
+
+<p>Author : Lil Bahadur Chhetri</p>
+
+<h4>Rs.500</h4>
+
+<button>Add To Cart</button>
+
+</div>
+<!-- Book 7 -->
+
+<div class="card">
+
+<img src="images/shirishko-phool.jpg" alt="Shirishko Phool">
+
+<h3>Shirishko Phool</h3>
+
+<p>Author : Parijat</p>
+
+<h4>Rs.650</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<!-- Book 8 -->
+
+<div class="card">
+
+<img src="images/radha.jpg" alt="Radha">
+
+<h3>Radha</h3>
+
+<p>Author : Krishna Dharabasi</p>
+
+<h4>Rs.700</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<!-- Book 9 -->
+
+<div class="card">
+
+<img src="images/jiwan-kada-ki-phool.jpg" alt="Jiwan Kada Ki Phool">
+
+<h3>Jiwan Kada Ki Phool</h3>
+
+<p>Author : Jhamak Ghimire</p>
+
+<h4>Rs.550</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<!-- Book 10 -->
+
+<div class="card">
+
+<img src="images/firfire.jpg" alt="Firfire">
+
+<h3>Firfire</h3>
+
+<p>Author : Buddhisagar</p>
+
+<h4>Rs.800</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<!-- Book 11 -->
+
+<div class="card">
+
+<img src="images/muglan.jpg" alt="Muglan">
+
+<h3>Muglan</h3>
+
+<p>Author : Diamond Shumsher Rana</p>
+
+<h4>Rs.780</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<!-- Book 12 -->
+
+<div class="card">
+
+<img src="images/china-harayeko-manche.jpg" alt="China Harayeko Manchhe">
+
+<h3>China Harayeko Manchhe</h3>
+
+<p>Author : Hari Bansha Acharya</p>
+
+<h4>Rs.900</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= BEST SELLERS ================= -->
+
+<section class="best-sellers">
+
+<h2>Best Sellers</h2>
+
+<div class="book-container">
+
+<div class="card">
+
+<img src="images/summerlove.jpg">
+
+<h3>Summer Love</h3>
+
+<p>Rs.650</p>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/karnali.jpg">
+
+<h3>Karnali Blues</h3>
+
+<p>Rs.850</p>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/setodharti.jpg">
+
+<h3>Seto Dharti</h3>
+
+<p>Rs.750</p>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/shirishko-phool.jpg">
+
+<h3>Shirishko Phool</h3>
+
+<p>Rs.650</p>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= NEW ARRIVALS ================= -->
+
+<section class="new-arrivals">
+
+<h2>New Arrivals</h2>
+
+<div class="book-container">
+
+<div class="card">
+
+<img src="images/aina.jpg">
+
+<h3>Aina</h3>
+
+<p>Author : Ramlal Joshi</p>
+
+<h4>Rs.780</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/ek-sarko-maya.jpg">
+
+<h3>Ek Sarko Maya</h3>
+
+<p>Author : Subin Bhattarai</p>
+
+<h4>Rs.720</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/sumnima.jpg">
+
+<h3>Sumnima</h3>
+
+<p>Author : B.P. Koirala</p>
+
+<h4>Rs.680</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="images/pagal-basti.jpg">
+
+<h3>Pagal Basti</h3>
+
+<p>Author : Sarubhakta</p>
+
+<h4>Rs.690</h4>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+</section> 
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about">
+
+    <div class="about-content">
+
+        <h2>About Swasteeka Book Store</h2>
+
+        <p>
+            Swasteeka Book Store is a Nepali online bookstore where readers can
+            easily find and buy their favorite books. We provide novels,
+            educational books, motivational books, children's books and many
+            more at affordable prices.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="review-container">
+
+<div class="review">
+
+<img src="images/user1.png" alt="User">
+
+<h3>Ram Sharma</h3>
+
+<p>
+⭐⭐⭐⭐⭐
+</p>
+
+<p>
+"Very good service. Books arrived on time."
+</p>
+
+</div>
+
+<div class="review">
+
+<img src="images/user2.png" alt="User">
+
+<h3>Sita Karki</h3>
+
+<p>
+⭐⭐⭐⭐⭐
+</p>
+
+<p>
+"I found my favourite Nepali novels here."
+</p>
+
+</div>
+
+<div class="review">
+
+<img src="images/user3.png" alt="User">
+
+<h3>Hari Bhatta</h3>
+
+<p>
+⭐⭐⭐⭐☆
+</p>
+
+<p>
+"Affordable prices and beautiful website."
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+<h2>Subscribe Newsletter</h2>
+
+<p>Get updates about new books and special offers.</p>
+
+<div class="newsletter-box">
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button>
+
+Subscribe
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<p>Email : info@swasteekabookstore.com</p>
+
+<p>Phone : +977-9800000000</p>
+
+<p>Address : Kathmandu, Nepal</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<h3>Swasteeka Book Store</h3>
+
+<p>
+Your trusted Nepali online bookstore.
+</p>
+
+<div class="social-icons">
+
+<a href="#">
+<i class="fab fa-facebook"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="#">
+<i class="fab fa-tiktok"></i>
+</a>
+
+</div>
+
+<p class="copyright">
+
+© 2026 Swasteeka Book Store. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
