@@ -1,3 +1,4 @@
+script.js
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const cards = document.querySelectorAll('#book-list .card, .best-sellers .card'); // Don't filter best-sellers away on search, but allow cart click
@@ -5,8 +6,10 @@ const popularCards = document.querySelectorAll('#book-list .card');
 const sectionTitle = document.getElementById('section-title');
 const categoryButtons = document.querySelectorAll('.category');
 
-// --- A. Cart System Logic ---
-let cartCount = 0;
+// --- A. Cart System Logic (LocalStorage Integration) ---
+
+// LocalStorage बाट पुरानो कार्ट डेटा लोड गर्ने (डेटा छैन भने खाली एरे [] राख्ने)
+let cart = JSON.parse(localStorage.getItem('bookCart')) || [];
 
 // Header ma vako cart icon bhitra pointer/badge thpne logic
 const cartLink = document.querySelector('.header-icons a[href="cart.html"]');
@@ -27,16 +30,58 @@ cartLink.innerHTML += `<span id="cart-badge" style="
 const cartBadge = document.getElementById('cart-badge');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
+// पेज लोड हुँदा पहिले थपिएका आइटमहरूको संख्या ब्याजलगायत देखाउने फङ्सन
+function updateCartBadge() {
+    // कार्टमा भएका सबै सामानको Quantity (संख्या) जोड्ने
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    if (totalItems > 0) {
+        cartBadge.innerText = totalItems;
+        cartBadge.style.display = 'block';
+    } else {
+        cartBadge.style.display = 'none';
+    }
+}
+
+// सुरुमै ब्याज अपडेट गर्ने
+updateCartBadge();
+
 addToCartButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-        // Cart count badhane
-        cartCount++;
-        cartBadge.innerText = cartCount;
-        cartBadge.style.display = 'block'; // Badge dekhane
-
-        // Get Book Details for feedback
+        // १. कार्टमा सेभ गर्ने लोजिक
         const card = e.target.closest('.card');
-        const bookTitle = card.querySelector('h3').innerText;
+        const title = card.querySelector('h3').innerText;
+        
+        // Author र Price निकाल्ने (यदि Author छैन भने 'Unknown Author' राख्ने)
+        const authorElement = card.querySelector('p');
+        const author = authorElement ? authorElement.innerText.replace('Author : ', '') : 'Unknown Author';
+        
+        const priceText = card.querySelector('h4').innerText;
+        const price = parseInt(priceText.replace(/[^0-9]/g, '')); // 'Rs.650' बाट '650' मात्र निकाल्ने
+        
+        const img = card.querySelector('img').src;
+
+        const bookItem = {
+            title: title,
+            author: author,
+            price: price,
+            img: img,
+            quantity: 1
+        };
+
+        // यदि कार्टमा यो पुस्तक पहिले नै छ भने त्यसको संख्या (Quantity) मात्र १ ले बढाउने
+        const existingItemIndex = cart.findIndex(item => item.title === title);
+        if (existingItemIndex > -1) {
+            cart[existingItemIndex].quantity += 1;
+        } else {
+            cart.push(bookItem);
+        }
+
+        // LocalStorage मा कार्ट सेभ गर्ने
+        localStorage.setItem('bookCart', JSON.stringify(cart));
+
+        // २. ब्याज र एनिमेसन अपडेट गर्ने
+        updateCartBadge();
 
         // Button transient visual response
         const originalText = button.innerText;
