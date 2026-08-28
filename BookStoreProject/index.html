@@ -6,180 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWASTEEKA Book Store</title>
 
+    <!-- External and Custom CSS Files -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* HTML Smooth Scroll थपिएको - यसले मेनु थिच्दा सरर बगाएर लैजान्छ */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* --- CART POPUP (MODAL) STYLES --- */
-        .cart-modal {
-            display: none;
-            /* सुरुमा लुकाउने */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* कालो धमिलो ब्याकग्राउन्ड */
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-modal-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .close-cart,
-        .close-login {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .close-cart:hover,
-        .close-login:hover {
-            color: #000;
-        }
-
-        /* Cart Items Row inside Popup */
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item img {
-            width: 50px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .cart-item-details {
-            flex-grow: 1;
-            margin-left: 15px;
-        }
-
-        .cart-item-details h4 {
-            margin: 0 0 5px 0;
-            font-size: 15px;
-        }
-
-        .cart-item-details p {
-            margin: 0;
-            color: #777;
-            font-size: 13px;
-        }
-
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-right: 15px;
-        }
-
-        .qty-btn {
-            background: #eee;
-            border: none;
-            padding: 4px 8px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-
-        .remove-btn {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        .cart-total-section {
-            margin-top: 20px;
-            text-align: right;
-            border-top: 2px solid #eee;
-            padding-top: 15px;
-        }
-
-        .checkout-btn,
-        .login-btn {
-            background: #2ecc71;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 100%;
-            font-size: 16px;
-        }
-
-        .checkout-btn:hover,
-        .login-btn:hover {
-            background: #27ae60;
-        }
-
-        /* --- CUSTOMER LOGIN POPUP STYLES --- */
-        .login-input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-
-        .user-profile-display {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #f1f2f6;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -189,7 +18,6 @@
             <i class="fa-solid fa-book-open"></i>
             <h2>Swasteeka Book Store</h2>
         </div>
-        <!-- मेनु लिङ्कहरू मिलाइएको छ -->
         <nav>
             <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a>
             <a href="#popular-section">Books</a>
@@ -205,7 +33,7 @@
                 </button>
             </div>
 
-            <!-- CART ICON (क्लिक गर्दा पप-अप खुल्नेछ) -->
+            <!-- CART ICON -->
             <a href="#" id="cart-icon-btn" style="position: relative; cursor: pointer;">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-badge" style="
@@ -222,7 +50,7 @@
                 ">0</span>
             </a>
 
-            <!-- USER ACCOUNT BUTTON (क्लिक गर्दा लगइन पप-अप खुल्नेछ) -->
+            <!-- USER ACCOUNT BUTTON -->
             <div id="user-sec">
                 <a href="#" id="login-icon-btn" style="cursor: pointer;">
                     <i class="fa-solid fa-user"></i>
@@ -241,7 +69,6 @@
         </div>
     </section>
 
-    <!-- Categories Section मा "categories-section" ID थपिएको छ -->
     <section class="categories" id="categories-section">
         <h2>Book Categories</h2>
         <div class="category-container">
@@ -275,15 +102,14 @@
         <h2>Best Sellers</h2>
         <div class="book-container">
             <div class="card">
-                <img src="assets/image/random pic.png"
+                <img src="assets/image/random pic.png" alt="Summer Love">
                 <h3>Summer Love</h3>
                 <p>Author : Subin Bhattarai</p>
                 <h4>Rs.650</h4>
                 <button class="add-to-cart">Add To Cart</button>
             </div>
             <div class="card">
-                <img src="assets/image/random pic.png"
-                    alt="Karnali Blues">
+                <img src="assets/image/random pic.png" alt="Karnali Blues">
                 <h3>Karnali Blues</h3>
                 <p>Author : Buddhisagar</p>
                 <h4>Rs.850</h4>
@@ -292,7 +118,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section मा "why-choose-us-section" ID थपिएको छ र Bilingual बनाइएको छ -->
     <section class="why-choose-us" id="why-choose-us-section"
         style="padding: 60px 20px; background: #f9f9f9; text-align: center;">
         <h2 style="font-size: 28px; margin-bottom: 10px; color: #2c3e50; font-family: sans-serif;">
@@ -307,7 +132,6 @@
         <div class="features-container"
             style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
 
-            <!-- कार्ड १: डेलिभरी -->
             <div class="feature-card"
                 style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 1; min-width: 250px; max-width: 350px; transition: transform 0.3s ease;">
                 <i class="fa-solid fa-truck-fast" style="font-size: 40px; color: #2ecc71; margin-bottom: 15px;"></i>
@@ -321,7 +145,6 @@
                 </p>
             </div>
 
-            <!-- कार्ड २: ओरिजिनल पुस्तकहरू -->
             <div class="feature-card"
                 style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 1; min-width: 250px; max-width: 350px; transition: transform 0.3s ease;">
                 <i class="fa-solid fa-square-check" style="font-size: 40px; color: #2ecc71; margin-bottom: 15px;"></i>
@@ -335,7 +158,6 @@
                 </p>
             </div>
 
-            <!-- CARD 3: Quick Support -->
             <div class="feature-card"
                 style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 1; min-width: 250px; max-width: 350px; transition: transform 0.3s ease;">
                 <i class="fa-solid fa-headset" style="font-size: 40px; color: #2ecc71; margin-bottom: 15px;"></i>
@@ -352,7 +174,6 @@
         </div>
     </section>
 
-    <!-- Contact Section मा "contact-section" ID थपिएको छ -->
     <section class="contact" id="contact-section">
         <h2>Contact Us</h2>
         <div class="contact-container">
@@ -362,7 +183,7 @@
         </div>
     </section>
 
-    <!-- --- CART MODAL (POP-UP BOX HTML) --- -->
+    <!-- --- CART MODAL --- -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-modal-content">
             <span class="close-cart" id="close-cart-btn">&times;</span>
@@ -380,7 +201,7 @@
         </div>
     </div>
 
-    <!-- --- CUSTOMER LOGIN/REGISTER MODAL (POP-UP) --- -->
+    <!-- --- CUSTOMER LOGIN/REGISTER MODAL --- -->
     <div id="loginModal" class="cart-modal">
         <div class="cart-modal-content" style="max-width: 400px;">
             <span class="close-login" id="close-login-btn">&times;</span>
@@ -423,7 +244,7 @@
             { title: "Radha", author: "Krishna Dharabasi", price: "Rs.700", category: "novel", img: "assets/image/random pic.png" },
             { title: "Firfire", author: "Buddhisagar", price: "Rs.800", category: "novel", img: "assets/image/random pic.png" },
             { title: "Muglan", author: "Diamond Shumsher Rana", price: "Rs.780", category: "novel", img: "assets/image/random pic.png" },
-            { title: "China Harayeko Manchhe", author: "Hari Bansha Acharya", price: "Rs.900", category: "novel", img:"assets/image/random pic.png" }
+            { title: "China Harayeko Manchhe", author: "Hari Bansha Acharya", price: "Rs.900", category: "novel", img: "assets/image/random pic.png" }
         ];
 
         const searchInput = document.getElementById('search');
@@ -474,7 +295,7 @@
 
                 document.getElementById('profile-btn').addEventListener('click', (e) => {
                     e.preventDefault();
-                    const logoutConfirm = confirm(`नमस्ते ${user.name}!\nEmail: ${user.email}\nPhone: ${user.phone}\n\nके तपाईँ अकाउन्ट लग-आउट करना चाहनुहुन्छ?`);
+                    const logoutConfirm = confirm(`नमस्ते ${user.name}!\nEmail: ${user.email}\nPhone: ${user.phone}\n\nके तपाईँ अकाउन्ट लग-आउट गर्न चाहनुहुन्छ?`);
                     if (logoutConfirm) {
                         localStorage.removeItem('storeUser');
                         location.reload();
@@ -507,7 +328,6 @@
             checkCurrentUser();
             location.reload();
         });
-
 
         // --- 4. POPUP MODAL CONTROL LOGIC ---
         cartIconBtn.addEventListener('click', (e) => {
@@ -546,7 +366,7 @@
 
                 cartHTML += `
                     <div class="cart-item">
-                        <img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src="assets/image/random pic.png";">
+                        <img src="${item.img}" alt="${item.title}" onerror="this.onerror=null; this.src='assets/image/random pic.png';">
                         <div class="cart-item-details">
                             <h4>${item.title}</h4>
                             <p>Rs. ${item.price}</p>
@@ -620,7 +440,7 @@
         }
         displayBooks(defaultBooks);
 
-        // --- ७. SUPER FLEXIBLE SEARCH LOGIC (LOCAL FIRST + GOOGLE API SECOND) ---
+        // --- 7. SEARCH LOGIC ---
         async function performSearch() {
             const query = searchInput.value.toLowerCase().trim();
 
@@ -700,7 +520,7 @@
                     return selectedCategory === 'all' || book.category === selectedCategory;
                 });
 
-                displayBooks(filteredBooks);F
+                displayBooks(filteredBooks);
 
                 if (selectedCategory === 'all') {
                     sectionTitle.innerText = "Popular Nepali Books";
